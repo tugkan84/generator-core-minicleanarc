@@ -1,0 +1,14 @@
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Infrastructure.deps.json
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Infrastructure.runtimeconfig.json
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Infrastructure.runtimeconfig.dev.json
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Infrastructure.dll
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Infrastructure.pdb
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Core.dll
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\bin\Debug\netcoreapp2.2\Deneme.Core.pdb
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.csprojAssemblyReference.cache
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.csproj.CoreCompileInputs.cache
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.AssemblyInfoInputs.cache
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.AssemblyInfo.cs
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.csproj.CopyComplete
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.dll
+c:\Users\birkan.tugcu\Documents\Vscode Uygulamaları\Yeoman\generator-core-minicleanarc\Deneme\Deneme.Infrastructure\obj\Debug\netcoreapp2.2\Deneme.Infrastructure.pdb

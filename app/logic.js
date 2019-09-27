@@ -17,26 +17,53 @@ let execFunc = (str, folder) => {
 
 const  create = async (data) => {
     
-    let projectFolder = data.projectName;
+    projectFolder = data.projectName;
 
     if (data.projectFolderName) {
         projectFolder = data.projectFolderName;
     }
+    const apiName = data.projectName + '.API';
+    const coreName = data.projectName + '.Core';
+    const infraName = data.projectName + '.Infrastructure';
+    
 
    await execFunc('mkdir ' + projectFolder);
    await execFunc('dotnet new sln --name ' + data.projectName, projectFolder);
-   await execFunc('dotnet new webapi --name ' + data.projectName + '.API', projectFolder);
-   await execFunc('dotnet new classlib --name ' + data.projectName + '.Core', projectFolder);
-   await execFunc('dotnet new classlib --name ' + data.projectName + '.Infrastructure', projectFolder);
-   await execFunc('dotnet sln add .\\'+ data.projectName + '.API\\' + data.projectName + '.API.csproj', projectFolder);
-   await execFunc('dotnet sln add .\\'+ data.projectName + '.Core\\' + data.projectName + '.Core.csproj', projectFolder);
-   await execFunc('dotnet sln add .\\'+ data.projectName + '.Infrastructure\\' + data.projectName + '.Infrastructure.csproj', projectFolder);
-   await execFunc('dotnet add ' + data.projectName + '.API/' + data.projectName + '.API.csproj reference '+ data.projectName + '.Infrastructure/' + data.projectName + '.Infrastructure.csproj', projectFolder);
-   await execFunc('dotnet add ' + data.projectName + '.API/' + data.projectName + '.API.csproj reference '+ data.projectName + '.Infrastructure/' + data.projectName + '.Infrastructure.csproj', projectFolder);
+   await execFunc('dotnet new webapi --name ' +apiName , projectFolder);
+   await execFunc('dotnet new classlib --name ' + coreName+ ' -f netcoreapp2.2', projectFolder);
+   await execFunc('dotnet new classlib --name ' + infraName+ ' -f netcoreapp2.2', projectFolder);
+   await execFunc('dotnet sln add .\\'+ apiName + '\\' + makeCsproj(apiName), projectFolder);
+   await execFunc('dotnet sln add .\\'+ coreName + '\\' + makeCsproj(coreName), projectFolder);
+   await execFunc('dotnet sln add .\\'+ infraName + '\\' + makeCsproj(infraName), projectFolder);
+   console.log('Projects referencing...')      
+   await execFunc('dotnet add ' + apiName + '/' + makeCsproj(apiName) +' reference '+ infraName + '/' + makeCsproj(infraName)+ ' ' +coreName + '/' + makeCsproj(coreName) , projectFolder);
+   await execFunc('dotnet add ' + infraName + '/' + makeCsproj(infraName) +' reference '+ coreName + '/' + makeCsproj(coreName), projectFolder);
+   console.log('Packages preparing for api...')      
+   await execFunc('cd '+apiName+' && dotnet add package MediatR', projectFolder);
+   await execFunc('cd '+apiName+' && dotnet add package MediatR.Extensions.Microsoft.DependencyInjection ', projectFolder);
+   await execFunc('cd '+apiName+' && dotnet add package Microsoft.Extensions.DependencyInjection -v 2.2.0', projectFolder);
+   await execFunc('cd '+apiName+' && dotnet add package Swashbuckle.AspNetCore', projectFolder);
+   
+   console.log('Packages preparing for core...')      
+   await execFunc('cd '+coreName+' && dotnet add package MediatR', projectFolder);
+   await execFunc('cd '+coreName+' && dotnet add package Microsoft.Extensions.Logging -v 2.2.0', projectFolder);
+   
+   console.log('Packages preparing for infrastructure...')  
+   await execFunc('cd '+infraName+' && dotnet add package Microsoft.EntityFrameworkCore.SqlServer -v 2.2.0', projectFolder);
+   await execFunc('cd '+infraName+' && dotnet add package Microsoft.EntityFrameworkCore.Design', projectFolder);
+   await execFunc('cd '+infraName+' && dotnet add package Microsoft.EntityFrameworkCore.Tools -v 2.2.0', projectFolder);
+   
+
    
    await execFunc('dotnet restore', projectFolder);
    await execFunc('dotnet build ' + data.projectName + '.sln', projectFolder);
 
 }
+
+const makeCsproj = (name) => {
+    return name+'.csproj'
+}
+
+
 
 module.exports = { create }

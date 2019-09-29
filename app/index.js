@@ -1,6 +1,7 @@
 var Generator = require('yeoman-generator');
 const { create } = require('./logic');
 
+
 module.exports = class extends Generator {
     async prompting() {
         const answers = await this.prompt([
@@ -18,24 +19,31 @@ module.exports = class extends Generator {
         ]);
         await create(answers);
         let projectFolder = answers.projectName;
+        let sdk = answers.sdk;
 
         if (answers.projectFolderName) {
             projectFolder = answers.projectFolderName;
         }
 
-        this.fs.delete(projectFolder + '/' + answers.projectName + '.Infrastructure/Class1.cs');
-        this.fs.delete(projectFolder + '/' + answers.projectName + '.Core/Class1.cs');
-        
         this.fs.copyTpl(
             this.templatePath('Infrastructure'),
             this.destinationPath(projectFolder + '/' + answers.projectName + '.Infrastructure/'),
+            {title : answers.projectName}
         );
 
         this.fs.copyTpl(
             this.templatePath('Core'),
             this.destinationPath(projectFolder + '/' + answers.projectName + '.Core/'),
+            {title : answers.projectName}
         );
-        
+        this.fs.copyTpl(
+            this.templatePath('Api'+ sdk),
+            this.destinationPath(projectFolder + '/' + answers.projectName + '.API/'),
+            {title : answers.projectName}
+        );
+
+        this.fs.delete(projectFolder + '/' + answers.projectName + '.Infrastructure/Class1.cs');
+        this.fs.delete(projectFolder + '/' + answers.projectName + '.Core/Class1.cs');
     }
     // The name `constructor` is important here
     constructor(args, opts) {
@@ -59,5 +67,6 @@ module.exports = class extends Generator {
     // method2() {
     //     this.log('method 2 just ran');
     // }
+
 };
 

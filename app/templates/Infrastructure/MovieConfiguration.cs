@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Minimal.Core.Models;
+using <%= title %>.Core.Models;
 
-namespace Minimal.Infrastructure.EntityConfigurations
+namespace <%= title %>.Infrastructure.EntityConfigurations
 {
     public class MovieConfiguration : IEntityTypeConfiguration<Movie>
     {

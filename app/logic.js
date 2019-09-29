@@ -35,6 +35,7 @@ const create = async (data) => {
 
      await execFunc('dotnet --version').then( r => {
          netSdk = r.split('.')[0]+'.'+r.split('.')[1];
+         data.sdk = netSdk;
         }
     );
 

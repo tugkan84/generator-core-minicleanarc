@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Minimal.Core.Interfaces;
-using Minimal.Core.Models;
+using <%= title %>.Core.Interfaces;
+using <%= title %>.Core.Models;
 
-namespace Minimal.Infrastructure.Repositories
+namespace <%= title %>.Infrastructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : EntityBase
     {

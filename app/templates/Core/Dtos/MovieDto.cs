@@ -1,4 +1,4 @@
-namespace Minimal.Core.Dtos
+namespace <%= title %>.Core.Dtos
 {
     public class MovieDto
     {

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Minimal.Core.Events
+namespace <%= title %>.Core.Events
 {
     public class NewMovieCreatedEvent : INotification
     {

@@ -3,13 +3,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Minimal.Core.Dtos;
-using Minimal.Core.Dtos.Requests;
-using Minimal.Core.Events;
-using Minimal.Core.Interfaces;
-using Minimal.Core.Models;
+using <%= title %>.Core.Dtos;
+using <%= title %>.Core.Dtos.Requests;
+using <%= title %>.Core.Events;
+using <%= title %>.Core.Interfaces;
+using <%= title %>.Core.Models;
 
-namespace Minimal.Core.Services.MovieUseCases
+namespace <%= title %>.Core.Services.MovieUseCases
 {
     public class CreateMovieHandler : IRequestHandler<CreateMovieRequest, BaseResponseDto<bool>>
     {

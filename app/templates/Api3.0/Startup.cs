@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DenemeTitle.Infrastructure;
+using <%= title %>.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,12 +13,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using DenemeTitle.Core.Interfaces;
-using DenemeTitle.Core.Services.MovieUseCases;
-using DenemeTitle.Infrastructure.Repositories;
+using <%= title %>.Core.Interfaces;
+using <%= title %>.Core.Services.MovieUseCases;
+using <%= title %>.Infrastructure.Repositories;
 
 
-namespace DenemeTitle.API
+namespace <%= title %>.API
 {
     public class Startup
     {

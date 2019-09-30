@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Minimal.Core.Models;
+using <%= title %>.Core.Models;
 
-namespace Minimal.Infrastructure
+namespace <%= title %>.Infrastructure
 {
     public class AppDbContext : DbContext
     {

@@ -1,6 +1,7 @@
 var Generator = require('yeoman-generator');
 const { create } = require('./logic');
 
+
 module.exports = class extends Generator {
     async prompting() {
         const answers = await this.prompt([
@@ -17,76 +18,32 @@ module.exports = class extends Generator {
             }
         ]);
         await create(answers);
-        projectFolder = answers.projectName;
+        let projectFolder = answers.projectName;
+        let sdk = answers.sdk;
 
         if (answers.projectFolderName) {
             projectFolder = answers.projectFolderName;
         }
 
         this.fs.copyTpl(
-            this.templatePath('AppDbContext.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Infrastructure/' + 'AppDbContext.cs'),
+            this.templatePath('Infrastructure'),
+            this.destinationPath(projectFolder + '/' + answers.projectName + '.Infrastructure/'),
+            {title : answers.projectName}
         );
 
         this.fs.copyTpl(
-            this.templatePath('Repository.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Infrastructure/' + 'Repositories/Repository.cs'),
+            this.templatePath('Core'),
+            this.destinationPath(projectFolder + '/' + answers.projectName + '.Core/'),
+            {title : answers.projectName}
+        );
+        this.fs.copyTpl(
+            this.templatePath('Api'+ sdk),
+            this.destinationPath(projectFolder + '/' + answers.projectName + '.API/'),
+            {title : answers.projectName}
         );
 
-        this.fs.copyTpl(
-            this.templatePath('MovieConfiguration.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Infrastructure/' + 'EntityConfigurations/MovieConfiguration.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('CreateMovieHandler.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Services/MovieUseCases/CreateMovieHandler.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('GetBestMoviesForKidsHandler.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Services/MovieUseCases/GetBestMoviesForKidsHandler.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('Movie.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Models/Movie.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('EntityBase.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Models/EntityBase.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('IRepository.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Interfaces/IRepository.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('NewMovieCreatedEvent.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Events/NewMovieCreatedEvent.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('MovieDto.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Dtos/MovieDto.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('BaseResponseDto.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Dtos/BaseResponseDto.cs'),
-        );
-        
-        this.fs.copyTpl(
-            this.templatePath('GetBestMoviesForKidsRequest.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Dtos/Requests/GetBestMoviesForKidsRequest.cs'),
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('CreateMovieRequest.cs'),
-            this.destinationPath(projectFolder+'/'+answers.projectName + '.Core/' + 'Dtos/Requests/CreateMovieRequest.cs'),
-        );
+        this.fs.delete(projectFolder + '/' + answers.projectName + '.Infrastructure/Class1.cs');
+        this.fs.delete(projectFolder + '/' + answers.projectName + '.Core/Class1.cs');
     }
     // The name `constructor` is important here
     constructor(args, opts) {
@@ -110,5 +67,6 @@ module.exports = class extends Generator {
     // method2() {
     //     this.log('method 2 just ran');
     // }
+
 };
 

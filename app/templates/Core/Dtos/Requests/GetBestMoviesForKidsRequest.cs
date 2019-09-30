@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Minimal.Core.Dtos.Requests
+namespace <%= title %>.Core.Dtos.Requests
 {
     public class GetBestMoviesForKidsRequest : IRequest<BaseResponseDto<MovieDto>>
     {

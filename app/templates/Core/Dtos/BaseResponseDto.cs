@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Minimal.Core.Dtos
+namespace <%= title %>.Core.Dtos
 {
     public class BaseResponseDto<TData>
     {

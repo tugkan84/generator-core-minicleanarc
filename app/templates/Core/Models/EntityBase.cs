@@ -1,6 +1,6 @@
 using System;
 
-namespace Minimal.Core.Models
+namespace <%= title %>.Core.Models
 {
     public abstract class EntityBase
     {

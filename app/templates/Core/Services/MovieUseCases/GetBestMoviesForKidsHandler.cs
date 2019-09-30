@@ -1,10 +1,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Minimal.Core.Dtos;
-using Minimal.Core.Dtos.Requests;
+using <%= title %>.Core.Dtos;
+using <%= title %>.Core.Dtos.Requests;
 
-namespace Minimal.Core.Services.MovieUseCases
+namespace <%= title %>.Core.Services.MovieUseCases
 {
     public class GetBestMoviesForKidsHandler : IRequestHandler<GetBestMoviesForKidsRequest, BaseResponseDto<MovieDto>>
     {

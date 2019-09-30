@@ -1,4 +1,4 @@
-namespace Minimal.Core.Models
+namespace <%= title %>.Core.Models
 {
     public class Movie : EntityBase
     {

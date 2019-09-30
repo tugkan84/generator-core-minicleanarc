@@ -39,8 +39,6 @@ const CreateScripts = (projectName, projectFolder, sdk) => {
         { script: 'cd ' + this.infraName + ' && dotnet add package Microsoft.EntityFrameworkCore.SqlServer -v ' + sdk + '.0', folder: projectFolder },
         { script: 'cd ' + this.infraName + ' && dotnet add package Microsoft.EntityFrameworkCore.Design', folder: projectFolder },
         { script: 'cd ' + this.infraName + ' && dotnet add package Microsoft.EntityFrameworkCore.Tools -v ' + sdk + '.0', folder: projectFolder },
-        { script: 'dotnet restore', folder: projectFolder },
-        { script: 'dotnet build ' + projectName + '.sln', folder: projectFolder },
     ];
 
     if (sdk == '3.0') {
@@ -48,6 +46,10 @@ const CreateScripts = (projectName, projectFolder, sdk) => {
         scripts.push({ script:'cd ' + this.apiName + ' && dotnet add package Microsoft.AspNetCore.Mvc.Formatters.Json', folder: projectFolder });
         
     }
+    scripts.push([
+        { script: 'dotnet restore', folder: projectFolder },
+        { script: 'dotnet build ' + projectName + '.sln', folder: projectFolder },
+    ]);
     return scripts;
 }
 

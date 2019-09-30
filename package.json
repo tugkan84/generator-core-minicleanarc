@@ -12,7 +12,7 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator","core","clean architecture","architecture"
   ],
   "dependencies": {
     "deep-extend": "^0.6.0",

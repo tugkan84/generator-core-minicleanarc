@@ -2,6 +2,12 @@
   "name": "generator-core-minicleanarc",
   "version": "0.1.0",
   "description": "Generates miniclean architecture project with givin name.",
+  "license": "MIT",
+  "author": {
+    "email": "birkantugcu@gmail.com",
+    "name": "Birkan Tuğcu",
+    "url": "https://medium.com/@birkantugcu"
+  },
   "files": [
     "app"
   ],

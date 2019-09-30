@@ -8,10 +8,20 @@
     "name": "Birkan Tuğcu",
     "url": "https://medium.com/@birkantugcu"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "homepage": "https://github.com/tugkan84/generator-core-minicleanarc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tugkan84/generator-core-minicleanarc.git"
+  },
   "files": [
     "app"
   ],
+  "bugs": {
+    "url": "https://github.com/tugkan84/generator-core-minicleanarc/issues"
+  },
   "keywords": [
     "yeoman-generator","core","clean architecture","architecture"
   ],

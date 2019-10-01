@@ -9,5 +9,5 @@ Basic usage commands are:
 ```
 npm i yo
 npm install -g generator-core-minicleanarc
-yo core-minicleanarc
+yo core-minicleanarc // I suggest to use --force for override files
 ```

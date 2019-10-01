@@ -1,6 +1,9 @@
 var Generator = require('yeoman-generator');
 const { create } = require('./logic');
+const fsCustom = require('fs');
 
+let projectFolder = '';
+let projectName = '';
 
 module.exports = class extends Generator {
     async prompting() {
@@ -18,7 +21,8 @@ module.exports = class extends Generator {
             }
         ]);
         await create(answers);
-        let projectFolder = answers.projectName;
+        projectName = answers.projectName; 
+        projectFolder = answers.projectName;
         let sdk = answers.sdk;
 
         if (answers.projectFolderName) {
@@ -42,8 +46,7 @@ module.exports = class extends Generator {
             {title : answers.projectName}
         );
 
-        this.fs.delete(projectFolder + '/' + answers.projectName + '.Infrastructure/Class1.cs');
-        this.fs.delete(projectFolder + '/' + answers.projectName + '.Core/Class1.cs');
+     
     }
     // The name `constructor` is important here
     constructor(args, opts) {
@@ -67,6 +70,10 @@ module.exports = class extends Generator {
     // method2() {
     //     this.log('method 2 just ran');
     // }
+    end(){
+        fsCustom.unlinkSync(projectFolder + '/' + projectName + '.Infrastructure/Class1.cs');
+        fsCustom.unlinkSync(projectFolder + '/' + projectName + '.Core/Class1.cs');
+    }
 
 };
 

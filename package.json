@@ -23,11 +23,14 @@
     "url": "https://github.com/tugkan84/generator-core-minicleanarc/issues"
   },
   "keywords": [
-    "yeoman-generator","core","clean architecture","architecture"
+    "yeoman-generator",
+    "core",
+    "clean architecture",
+    "architecture"
   ],
   "dependencies": {
     "deep-extend": "^0.6.0",
     "diff": "^4.0.1",
-    "yeoman-generator": "^1.1.1"
+    "yeoman-generator": "^4.1.0"
   }
 }
